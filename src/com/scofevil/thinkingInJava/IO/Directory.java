@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import com.scofevil.thinkInJava.util.PPrint;
-import com.scofevil.thinkInJava.util.U;
+import com.scofevil.thinkingInJava.util.PPrint;
+import com.scofevil.thinkingInJava.util.U;
 
 /**
  * 
