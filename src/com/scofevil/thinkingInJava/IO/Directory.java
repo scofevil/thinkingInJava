@@ -1,4 +1,4 @@
-package com.scofevil.thinkInJava.IO;
+package com.scofevil.thinkingInJava.IO;
 
 import java.io.File;
 import java.io.FilenameFilter;
