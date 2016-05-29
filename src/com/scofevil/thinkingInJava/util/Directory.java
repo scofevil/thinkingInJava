@@ -1,4 +1,4 @@
-package com.scofevil.thinkingInJava.IO;
+package com.scofevil.thinkingInJava.util;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import com.scofevil.thinkingInJava.util.PPrint;
-import com.scofevil.thinkingInJava.util.U;
 
 /**
  * 

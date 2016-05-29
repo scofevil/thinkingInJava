@@ -1,4 +1,4 @@
-package com.scofevil.thinkingInJava.IO;
+package com.scofevil.thinkingInJava.io;
 
 import java.io.File;
 import java.util.Arrays;

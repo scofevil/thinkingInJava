@@ -1,11 +1,11 @@
-package com.scofevil.thinkingInJava.IO;
+package com.scofevil.thinkingInJava.io;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
-public class DirLIst {
+public class DirList {
     public static void main(String[] args) {
         File path = new File("./bin");
         String[] list;
