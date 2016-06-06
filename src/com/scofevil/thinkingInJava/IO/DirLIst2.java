@@ -3,7 +3,7 @@ package com.scofevil.thinkingInJava.io;
 import java.io.File;
 import java.util.Arrays;
 
-public class DirLIst2 {
+public class DirList2 {
 
     public static void main(final String[] args) {
         File path = new File("/Applications");
