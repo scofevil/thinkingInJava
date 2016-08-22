@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class DirList {
     public static void main(String[] args) {
-        File path = new File("./bin");
+        File path = new File(".");
         String[] list;
         System.out.println(path.isDirectory());
         System.out.println(path.isFile());
