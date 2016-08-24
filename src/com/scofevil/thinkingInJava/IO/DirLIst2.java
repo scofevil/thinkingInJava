@@ -13,6 +13,7 @@ public class DirList2 {
         Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);
         for (String string : list) {
             System.out.println(string);
+
         }
     }
 }
