@@ -2,10 +2,10 @@ package com.scofevil.test;
 
 public class TestObject {
 
-    private int count;
+    private volatile int count;
 
-    public synchronized void doSomething(String threadName) {
-        System.out.println(threadName + " dosomething! and this moment count = " + count);
+    public void doSomething(String threadName) {
+        count++;
     }
 
     public int getCount() {
@@ -15,4 +15,9 @@ public class TestObject {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public String toString() {
+        return count + "";
+    }
+
 }
