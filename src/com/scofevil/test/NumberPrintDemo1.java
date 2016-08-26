@@ -1,16 +1,16 @@
 package com.scofevil.test;
 
-public class NumberPrintDemo {
+public class NumberPrintDemo1 {
 
     static class PrintThread extends Thread {
 
-        static volatile int currentRun;
+        private static volatile int currentRun;
 
-        static volatile int currentNum = 0;
+        private static volatile int currentNum = 0;
 
-        int                 current;
+        private int                 current;
 
-        static String       lock       = new String("lock");
+        static String               lock       = new String("lock");
 
         public PrintThread(int flag) {
             super("线程-" + flag);
