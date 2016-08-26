@@ -13,12 +13,24 @@ public class NumberPrintDemo1 {
 
     static class PrintThread extends Thread {
 
+        /**
+         * 当前符合条件的线程
+         */
         private static volatile int currentRun;
 
+        /**
+         * 当前数到的最后一个数
+         */
         private static volatile int currentNum = 0;
 
+        /**
+         * 当前线程的编号，currentRun==current，该线程开始数
+         */
         private int                 current;
 
+        /**
+         * 三个线程同步使用的锁，可以是任意的一把锁
+         */
         static String               lock       = new String("lock");
 
         public PrintThread(int flag) {
@@ -28,10 +40,11 @@ public class NumberPrintDemo1 {
 
         public void run() {
             do {
-                System.out.println("正在等待的线程 " + current);
+                System.out.println("正在等待锁的线程:线程" + current);
                 synchronized (lock) {
-                    System.out.println("线程" + current + " 获得lock");
+                    System.out.println("线程" + current + "获得锁");
                     if (currentRun == current) {
+                        System.out.println("线程" + current + "符合执行条件,开始数数:");
                         int i = 1;
                         while (i <= 5) {
                             try {
@@ -48,8 +61,10 @@ public class NumberPrintDemo1 {
                         } else {
                             currentRun = ((tmp / 5) % 3) + 1;
                         }
+                    } else {
+                        System.out.println("线程" + current + "暂时不符合执行条件,准备释放锁!");
                     }
-                    System.out.println("线程" + current + " 释放lock");
+                    System.out.println("线程" + current + "释放锁");
                 }
             } while (currentRun != -1);
         }
