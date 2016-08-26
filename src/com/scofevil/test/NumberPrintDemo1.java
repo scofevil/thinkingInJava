@@ -43,7 +43,7 @@ public class NumberPrintDemo1 {
                 System.out.println("正在等待锁的线程:线程" + current);
                 synchronized (lock) {
                     System.out.println("线程" + current + "获得锁");
-                    if (currentRun == current) {
+                    if (getCurrentRun() == current) {
                         System.out.println("线程" + current + "符合执行条件,开始数数:");
                         int i = 1;
                         while (i <= 5) {
@@ -57,16 +57,24 @@ public class NumberPrintDemo1 {
                         }
                         int tmp = currentNum;
                         if (tmp >= 75) {
-                            currentRun = -1;
+                            setCurrentRun(-1);
                         } else {
-                            currentRun = ((tmp / 5) % 3) + 1;
+                            setCurrentRun(((tmp / 5) % 3) + 1);
                         }
                     } else {
                         System.out.println("线程" + current + "暂时不符合执行条件,准备释放锁!");
                     }
                     System.out.println("线程" + current + "释放锁");
                 }
-            } while (currentRun != -1);
+            } while (getCurrentRun() != -1);
+        }
+
+        public static int getCurrentRun() {
+            return currentRun;
+        }
+
+        public static void setCurrentRun(int currentRun) {
+            PrintThread.currentRun = currentRun;
         }
     }
 
@@ -74,7 +82,7 @@ public class NumberPrintDemo1 {
         PrintThread t1 = new PrintThread(1);
         PrintThread t2 = new PrintThread(2);
         PrintThread t3 = new PrintThread(3);
-        PrintThread.currentRun = 1;
+        PrintThread.setCurrentRun(1);
         t1.start();
         t2.start();
         t3.start();

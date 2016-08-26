@@ -59,5 +59,12 @@ public class NotifyTest {
         waitThread01.start();
         waitThread02.start();
         waitThread03.start();
+        //        PrintThread t1 = new PrintThread(1);
+        //        PrintThread t2 = new PrintThread(2);
+        //        PrintThread t3 = new PrintThread(3);
+        //        PrintThread.setCurrentRun(1);
+        //        t1.start();
+        //        t2.start();
+        //        t3.start();
     }
 }
