@@ -6,7 +6,7 @@ public class NumberPrintDemo {
 
         static volatile int currentRun;
 
-        static volatile int currentNum = 1;
+        static volatile int currentNum = 0;
 
         int                 current;
 
@@ -24,16 +24,16 @@ public class NumberPrintDemo {
                     System.out.println("线程" + current + " 获得lock");
                     if (currentRun == current) {
                         int i = 1;
-                        do {
+                        while (i <= 5) {
                             try {
                                 Thread.sleep(500);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            System.out.println(super.getName() + " " + currentNum++);
+                            System.out.println(super.getName() + " " + ++currentNum);
                             i++;
-                        } while (i <= 5);
-                        int tmp = currentNum - 1;
+                        }
+                        int tmp = currentNum;
                         if (tmp >= 75) {
                             currentRun = -1;
                         } else {
