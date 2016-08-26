@@ -1,5 +1,14 @@
 package com.scofevil.test;
 
+/**
+ * @author 陆海峰
+ * 原则是只需要保证两点即可(1).某一时刻只有一个线程在数；(2)这一段属于该线程数的范围。
+ * 有以下三种实现方式，第三种还未实现。
+ * 1.如只使用while(true) 和volatile；
+ * 2.使用synchronize来同步；
+ * 3.定向通知下一个符合条件的线程开始数数，避免竞争到锁但是条件不符合又放弃锁带来的性能损失。
+ *
+ */
 public class NumberPrintDemo1 {
 
     static class PrintThread extends Thread {
