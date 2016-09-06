@@ -25,6 +25,8 @@ public class Test {
     }
 
     public static void main(String[] args) {
+        String s = null;
+        assert s != null;
         ArrayList<Test> list = new ArrayList<Test>();
         list.add(new Test("1"));
         list.add(new Test("2"));
@@ -42,6 +44,7 @@ public class Test {
                 t = null;
             }
         };
+
         iterator.forEachRemaining(action);
         System.out.println(tmp);
         System.out.println(tmp1);
