@@ -17,6 +17,5 @@ public class T<T> {
     }
 
     public static void main(String[] args) {
-        System.out.println(t);
     }
 }
