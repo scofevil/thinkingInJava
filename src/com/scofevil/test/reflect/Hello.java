@@ -1,4 +1,4 @@
-package com.scofevil.reflect;
+package com.scofevil.test.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
