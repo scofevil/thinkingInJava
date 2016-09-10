@@ -9,6 +9,7 @@ public class Test {
 }
 
 class One {
+    static Two two_1 = new Two("Two-1");
 
     One(String str) {
         System.out.println(str);
