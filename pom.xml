@@ -3,4 +3,21 @@
   <groupId>thinkingInJava</groupId>
   <artifactId>thinkingInJava</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-</project>
+  
+  <properties>
+		<springframework.version>4.0.3.RELEASE</springframework.version>
+	</properties>
+  
+  <dependencies>
+  	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
+	</dependency>
+	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+  </dependencies>
+</project> 
