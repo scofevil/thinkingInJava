@@ -3,6 +3,7 @@ package com.scofevil.test.construct;
 public class SubClass extends SuperClass {
     SubClass(String str) {
         super(str);
+        this.name = "";
         System.out.println("Sub with string");
     }
 
@@ -15,6 +16,7 @@ public class SubClass extends SuperClass {
 class SuperClass {
     //SuperClass() {
     //}
+    String name;
 
     SuperClass(String str) {
         System.out.println("Super with a string");
