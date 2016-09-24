@@ -1,6 +1,6 @@
 package com.scofevil.test.superandsub;
 
-public class SubClass extends SuperClass implements DosI {
+public class SubClass extends SuperClass {
 
     private String s;
 
