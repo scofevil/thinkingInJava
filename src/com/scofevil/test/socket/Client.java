@@ -7,12 +7,25 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.scofevil.test.Test;
 
 public class Client {
     public static void main(String[] args) {
         String host = "127.0.0.1";//要连接的服务端IP地址
         int port = 8899;//要连接服务端对应的监听端口
         //与服务端建立连接
+        final List<Test> l = new ArrayList<Test>();
+        new Thread(new Runnable() {
+            public void run() {
+                while (true) {
+                    System.out.println(l.size());
+                    l.add(new Test());
+                }
+            }
+        }).start();
         try {
             Socket client = new Socket(host, port);
             client.setSoTimeout(4000);
