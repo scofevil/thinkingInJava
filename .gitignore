@@ -34,3 +34,4 @@ src/main/webapp/demo
 
 .pom.xml.swp
 *.iml
+bin/
