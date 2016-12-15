@@ -2,9 +2,16 @@ package com.scofevil.test.construct;
 
 public class Test {
 
+    static {
+        System.out.println("forName");
+    }
+
     public static void main(String[] args) {
-        System.out.println("Test main() start");
-        System.out.println("Two.i=" + Two.i);
+        try {
+            Class.forName("com.scofevil.test.Test");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
 
