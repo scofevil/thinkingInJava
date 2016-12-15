@@ -33,3 +33,5 @@ src/main/resources/staticConfig.properties
 src/main/webapp/demo
 
 .pom.xml.swp
+*.iml
+bin/
