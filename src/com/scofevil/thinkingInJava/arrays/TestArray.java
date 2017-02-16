@@ -18,5 +18,7 @@ public class TestArray {
             sphereList.add(new BerylliumSphere());
         System.out.println(sphereList);
         System.out.println(sphereList.get(4));
+
+        //        List<Integer>[] li = new ArrayList<Integer>[12];
     }
 }
