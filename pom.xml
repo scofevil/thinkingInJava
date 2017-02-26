@@ -34,11 +34,9 @@
   </dependencies>
   <build>
       <finalName>ROOT</finalName>
-      <sourceDirectory>web/java</sourceDirectory>
+      <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
       <resources>
-          <resource>
-              <directory>web/resource</directory>
-          </resource>
+
       </resources>
       <plugins>
             <plugin>
