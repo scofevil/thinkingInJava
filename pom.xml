@@ -2,6 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.scofevil</groupId>
   <artifactId>thinkingInJava</artifactId>
+    <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
@@ -31,4 +32,27 @@
 			<scope>provided</scope>
 	</dependency>
   </dependencies>
-</project> 
+    <build>
+        <finalName>ROOT</finalName>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>web/WEB-INF</directory>
+                <targetPath>${project.build.directory}</targetPath>
+                <includes>
+                    <include>*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
