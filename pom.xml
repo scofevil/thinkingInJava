@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.scofevil</groupId>
   <artifactId>thinkingInJava</artifactId>
-    <packaging>war</packaging>
+  <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
 		<springframework.version>4.0.3.RELEASE</springframework.version>
-	</properties>
+  </properties>
   
   <dependencies>
   	<dependency>
@@ -32,19 +32,15 @@
 			<scope>provided</scope>
 	</dependency>
   </dependencies>
-    <build>
-        <finalName>ROOT</finalName>
-        <sourceDirectory>src</sourceDirectory>
-        <resources>
-            <resource>
-                <directory>web/WEB-INF</directory>
-                <targetPath>${project.build.directory}</targetPath>
-                <includes>
-                    <include>*.*</include>
-                </includes>
-            </resource>
-        </resources>
-        <plugins>
+  <build>
+      <finalName>ROOT</finalName>
+      <sourceDirectory>web/java</sourceDirectory>
+      <resources>
+          <resource>
+              <directory>web/resource</directory>
+          </resource>
+      </resources>
+      <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -53,6 +49,6 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
+      </plugins>
+  </build>
 </project>
