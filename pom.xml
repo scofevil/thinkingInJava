@@ -34,7 +34,6 @@
   </dependencies>
   <build>
       <finalName>ROOT</finalName>
-      <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
       <resources>
 
       </resources>
