@@ -15,10 +15,6 @@ classes
 .project
 .metadata
 
-config.properties
-jdbc.properties
-staticConfig.properties
-
 
 pids
 logs
