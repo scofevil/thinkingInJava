@@ -1,24 +1,31 @@
 package com.scofevil.test;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Test {
-    private List<Integer> list = new ArrayList<Integer>();
-
     public static void main(String[] args) {
-        System.out.println(T.class.getClassLoader());
-        System.out.println(T.l);
-        T t = new T("t");
+        OOMObject o = new OOMObject();
+        try {
+            o.stackLeak();
+        } catch (Exception e) {
+            System.out.println(o.getStackLength());
+            throw e;
+        }
     }
 }
 
-class T {
-    static {
-        System.out.println("init");
-    }
-    public static final List l = null;
+class OOMObject {
+    private int stackLength = 1;
 
-    public T(String s) {
-        System.out.println(s);
+    public void stackLeak() {
+        setStackLength(getStackLength() + 1);
+        stackLeak();
+    }
+
+    public int getStackLength() {
+        return stackLength;
+    }
+
+    public void setStackLength(int stackLength) {
+        this.stackLength = stackLength;
     }
 }
