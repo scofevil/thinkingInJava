@@ -1,31 +1,35 @@
 package com.scofevil.test;
 
-
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
         OOMObject o = new OOMObject();
         try {
-            o.stackLeak();
+            o.newthreadRun();
         } catch (Exception e) {
-            System.out.println(o.getStackLength());
-            throw e;
         }
     }
 }
 
 class OOMObject {
-    private int stackLength = 1;
+    private int i = 1;
 
-    public void stackLeak() {
-        setStackLength(getStackLength() + 1);
-        stackLeak();
+    private void oRun() {
+        while (true) {
+
+        }
     }
 
-    public int getStackLength() {
-        return stackLength;
+    public int newthreadRun() {
+        while (true) {
+            Thread t = new Thread(new Runnable() {
+
+                public void run() {
+                    oRun();
+                }
+            });
+            System.out.println(i++);
+            t.start();
+        }
     }
 
-    public void setStackLength(int stackLength) {
-        this.stackLength = stackLength;
-    }
 }
