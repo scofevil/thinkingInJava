@@ -1,35 +1,20 @@
 package com.scofevil.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) throws Throwable {
-        OOMObject o = new OOMObject();
-        try {
-            o.newthreadRun();
-        } catch (Exception e) {
+
+        List<String> list = new ArrayList<String>();
+        // 10MB的PermSize在integer范围内足够产生OOM了  
+        int i = 0;
+        while (true) {
+            list.add(String.valueOf(i++).intern());
         }
     }
 }
 
 class OOMObject {
-    private int i = 1;
-
-    private void oRun() {
-        while (true) {
-
-        }
-    }
-
-    public int newthreadRun() {
-        while (true) {
-            Thread t = new Thread(new Runnable() {
-
-                public void run() {
-                    oRun();
-                }
-            });
-            System.out.println(i++);
-            t.start();
-        }
-    }
 
 }
