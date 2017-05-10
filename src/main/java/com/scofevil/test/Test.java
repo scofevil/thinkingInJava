@@ -1,17 +1,39 @@
 package com.scofevil.test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Test {
     public static void main(String[] args) throws Throwable {
 
-        List<String> list = new ArrayList<String>();
-        // 10MB的PermSize在integer范围内足够产生OOM了  
-        int i = 0;
-        while (true) {
-            list.add(String.valueOf(i++).intern());
-        }
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                System.out.println("!!");
+            }
+        };
+
+        TimerTask timerTask1 = new TimerTask() {
+
+            @Override
+            public void run() {
+                System.out.println("??");
+            }
+        };
+        TimerTask timerTask2 = new TimerTask() {
+
+            @Override
+            public void run() {
+                System.out.println("??!!");
+            }
+        };
+        Timer timer2 = new Timer();
+        timer.schedule(timerTask, 3000, 3000);
+        timer.schedule(timerTask1, 3000, 3000);
+        timer2.schedule(timerTask2, 3000, 4000);
+
     }
 }
 
