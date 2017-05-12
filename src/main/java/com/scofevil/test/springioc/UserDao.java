@@ -1,21 +1,25 @@
 package com.scofevil.test.springioc;
 
-public class UserDao implements UserDaoI {
+public interface UserDao {
+    /**
+     * 添加用户
+     */
+    void addUser();
 
-    public void addUser() {
-        System.out.println("add a user");
-    }
+    /**
+     * 删除用户
+     */
+    void delUser();
 
-    public void delUser() {
+    /**
+     * 更新用户
+     */
+    void updateUser();
 
-    }
-
-    public void updateUser() {
-
-    }
-
-    public boolean hasUser(String user) {
-        return false;
-    }
-
+    /**
+     * 判断用户是否存在
+     * @param user
+     * @return
+     */
+    boolean hasUser(String user);
 }

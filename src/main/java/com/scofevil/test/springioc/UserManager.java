@@ -1,18 +1,27 @@
 package com.scofevil.test.springioc;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.scofevil.test.springioc.impl.UserDaoImpl;
+
+@Service
 public class UserManager {
 
-    private UserDaoI userDaoI;
+    @Resource
+    private UserDaoImpl userDaoImpl;
+
+    public UserDaoImpl getUserDaoImpl() {
+        return userDaoImpl;
+    }
+
+    public void setUserDaoImpl(UserDaoImpl userDaoImpl) {
+        this.userDaoImpl = userDaoImpl;
+    }
 
     public void addUser() {
-        this.userDaoI.addUser();
+        this.userDaoImpl.addUser();
     }
 
-    public UserDaoI getUserDao() {
-        return userDaoI;
-    }
-
-    public void setUserDaoI(UserDaoI userDao) {
-        this.userDaoI = userDao;
-    }
 }
