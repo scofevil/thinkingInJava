@@ -4,24 +4,16 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.scofevil.test.springioc.impl.UserDaoImpl;
+import com.scofevil.test.springioc.dao.UserDao;
 
 @Service
 public class UserManager {
 
     @Resource
-    private UserDaoImpl userDaoImpl;
-
-    public UserDaoImpl getUserDaoImpl() {
-        return userDaoImpl;
-    }
-
-    public void setUserDaoImpl(UserDaoImpl userDaoImpl) {
-        this.userDaoImpl = userDaoImpl;
-    }
+    private UserDao userDao;
 
     public void addUser() {
-        this.userDaoImpl.addUser();
+        this.userDao.addUser();
     }
 
 }

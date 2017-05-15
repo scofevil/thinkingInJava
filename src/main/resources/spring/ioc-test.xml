@@ -6,28 +6,29 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="
     http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.0.xsd 
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    
-    
-    
-    
-    <!--  <context:component-scan base-package="com.scofevil.test.springioc">
-     <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/> 
-    </context:component-scan>-->
-    
-    <bean id="userDaoImpl" class="com.scofevil.test.springioc.impl.UserDaoImpl" scope="singleton"/>
-    <bean id="userManager" class="com.scofevil.test.springioc.UserManager" scope="singleton" />
-    	<property name="userDaoImpl" ref="userDaoImpl" />
-    </bean>
+	<!-- 支持使用注解配置bean -->
+    <context:annotation-config/> 
+    <context:component-scan base-package="com.scofevil.test.springioc"> 
+        <context:include-filter type="regex" expression=".*"/> 
+    </context:component-scan>
+    <!-- 支持使用注解配置bean end-->
+
+    <!-- 该 BeanPostProcessor 将自动对标注@Autowired 的 Bean 进行注入 -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
     
  	<!-- 启动 @AspectJ 支持 -->   
     <aop:aspectj-autoproxy/>
     <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/>
     <!-- 启动 @AspectJ 支持 end -->
+    
+    <context:component-scan base-package="com.scofevil.test.springioc.aspect">
+    	<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/> 
+    </context:component-scan>
     
 </beans>
