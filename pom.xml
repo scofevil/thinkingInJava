@@ -197,7 +197,9 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.6.11</version>
         </dependency>
+     
   </dependencies>
+  
   <build>
       <finalName>ROOT</finalName>
       <resources>
