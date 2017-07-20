@@ -43,13 +43,14 @@ public class TestSingleton {
                 }
             });
         }
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         lock.setLock(false);
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         System.out.println("---------并发情况下我们取到的实例----------");
         for(String each:instanceSet){
             System.out.println(each);
         }
         executorService.shutdown();
+        System.exit(0);
     }
 }
