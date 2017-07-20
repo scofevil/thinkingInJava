@@ -6,7 +6,6 @@ public class ThreadLocalTest {
         Thread t1 = new Thread(new DoSomething());
         Thread t2 = new Thread(new DoSomething());
         Thread t3 = new Thread(new DoSomething());
-        t1.threadLocals;
         t1.start();
         t2.start();
         t3.start();
