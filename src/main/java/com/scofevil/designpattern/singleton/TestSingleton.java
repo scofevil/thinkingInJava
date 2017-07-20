@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  */
 public class TestSingleton {
 
-    private  boolean lock;
+    private volatile boolean lock;
 
 
     public boolean isLock() {
@@ -30,7 +30,7 @@ public class TestSingleton {
         final TestSingleton lock = new TestSingleton();
         lock.setLock(true);
         ExecutorService executorService = Executors.newCachedThreadPool();
-        for(int i=0;i<10;i++){
+        for(int i=0;i<5;i++){
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
