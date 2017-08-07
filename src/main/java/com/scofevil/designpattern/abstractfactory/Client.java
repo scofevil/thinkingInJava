@@ -12,6 +12,7 @@ public class Client {
         ProductA productA = c.createProductA();
         ProductB productB = c.createProductB();
         productA.methodA();
+        
         productB.methodB();
 
         c = new ConcreteCreator2();
