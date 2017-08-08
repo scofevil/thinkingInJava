@@ -12,7 +12,8 @@ public class ArrayOption {
         for (int i = 0; i < c.length; i++)
             if (c[i] == null)
                 c[i] = new BerylliumSphere();
-        BerylliumSphere[] d = { new BerylliumSphere(), new BerylliumSphere(), new BerylliumSphere() };
+        BerylliumSphere[] d = { new BerylliumSphere(), new BerylliumSphere(),
+                                new BerylliumSphere() };
         //        System.out.println("a.length" + a.length);
         System.out.println("b.length " + b.length);
         System.out.println("c.length " + c.length);

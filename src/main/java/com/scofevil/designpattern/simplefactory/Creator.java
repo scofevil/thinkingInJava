@@ -8,14 +8,15 @@ package com.scofevil.designpattern.simplefactory;
  */
 public class Creator {
 
-    private Creator(){}
+    private Creator() {
+    }
 
-    public static IProduct createProduct(String productName){
-        if(productName==null)
+    public static IProduct createProduct(String productName) {
+        if (productName == null)
             return null;
-        if(productName.equals("A"))
+        if (productName.equals("A"))
             return new ProductA();
-        if(productName.equals("B"))
+        if (productName.equals("B"))
             return new ProductB();
         return null;
     }

@@ -5,6 +5,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+interface China {
+    public static final String name = "Rollen";
+    public static       int    age  = 20;
+
+    public void sayChina();
+
+    public void sayHello(String name, int age);
+}
+
 public class Hello {
 
     public static void main(String[] args) {
@@ -86,15 +95,6 @@ public class Hello {
             e.printStackTrace();
         }
     }
-}
-
-interface China {
-    public static final String name = "Rollen";
-    public static int          age  = 20;
-
-    public void sayChina();
-
-    public void sayHello(String name, int age);
 }
 
 class Person implements China {

@@ -8,6 +8,6 @@ import java.util.EventListener;
  * @see
  * @since 1.0
  */
-public interface  DoorListener extends EventListener {
-     void  doorEvent(DoorEvent event);
+public interface DoorListener extends EventListener {
+    void doorEvent(DoorEvent event);
 }

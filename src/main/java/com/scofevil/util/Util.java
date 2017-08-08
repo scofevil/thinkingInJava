@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 public class Util {
     /**
      * 首字母大写，非法字段返回原字段
-     * @since 1.0 
+     * @since 1.0
      * @param src
      * @return
      * <br><b>作者： @author haifeng.lu</b>
@@ -26,11 +26,11 @@ public class Util {
         return src.substring(0, 1).toUpperCase() + src.substring(1);
     }
 
-    public void test(){
-        //test crlf
-    }
-
     public static void main(String[] args) {
         System.out.println(capitalizeFirstLetter("ac"));
+    }
+
+    public void test() {
+        //test crlf
     }
 }

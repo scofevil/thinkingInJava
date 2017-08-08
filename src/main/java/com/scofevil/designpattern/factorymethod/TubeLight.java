@@ -6,7 +6,7 @@ package com.scofevil.designpattern.factorymethod;
  * @see
  * @since 1.0
  */
-public class TubeLight implements Light{
+public class TubeLight implements Light {
     @Override
     public void turnOn() {
         System.out.println("TubeLight On");

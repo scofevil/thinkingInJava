@@ -9,16 +9,16 @@ package com.scofevil.designpattern.singleton;
 public class SynchronizedSingleton {
 
     //一个静态的实例
-    private static  SynchronizedSingleton synchronizedSingleton;
+    private static SynchronizedSingleton synchronizedSingleton;
 
     //私有化构造函数
-    private SynchronizedSingleton(){
+    private SynchronizedSingleton() {
     }
 
     //给出一个公共的静态方法返回一个单一实例
-    public static SynchronizedSingleton getSynchroniedSingleton(){
-        if(synchronizedSingleton == null){
-            synchronized (SynchronizedSingleton.class){
+    public static SynchronizedSingleton getSynchroniedSingleton() {
+        if (synchronizedSingleton == null) {
+            synchronized (SynchronizedSingleton.class) {
                 /**
                  *  假设我们去掉这里同步块中的是否为null的判断，
                  *  有这样一种情况，假设A线程和B线程都在同步块外面判断了synchronizedSingleton为null，
@@ -29,11 +29,11 @@ public class SynchronizedSingleton {
                  *  但是因为同步块里没有判断是否为null，直接就是一条创建实例的语句，
                  *  所以B线程也会创造一个实例返回，此时就造成创造了多个实例的情况。
                  */
-                if(synchronizedSingleton ==null){
+                if (synchronizedSingleton == null) {
                     synchronizedSingleton = new SynchronizedSingleton();
                 }
             }
         }
-        return  synchronizedSingleton;
+        return synchronizedSingleton;
     }
 }

@@ -8,8 +8,7 @@ public class SubClass extends SuperClass {
     }
 
     public static void main(String[] args) {
-        @SuppressWarnings("unused")
-        SubClass sub = new SubClass("sub");
+        @SuppressWarnings("unused") SubClass sub = new SubClass("sub");
     }
 }
 

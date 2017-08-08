@@ -11,7 +11,8 @@ public class Test {
     public static void main(String[] args) throws SQLException {
         Connection c = DataSource.getInstance().getConnection(true);
         c.close();
-        ConnectionDynamicProxy cc = new ConnectionDynamicProxy(DataSource.getInstance().getConnection(false));
+        ConnectionDynamicProxy cc = new ConnectionDynamicProxy(
+                DataSource.getInstance().getConnection(false));
         cc.getConnectionProxy().close();
         System.out.println(DataSource.getInstance().getConnectionList().size());
     }

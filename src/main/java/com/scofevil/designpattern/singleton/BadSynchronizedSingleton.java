@@ -12,11 +12,12 @@ public class BadSynchronizedSingleton {
     private static BadSynchronizedSingleton badSynchronizedSingleton;
 
     //私有化构造函数
-    private BadSynchronizedSingleton(){}
+    private BadSynchronizedSingleton() {
+    }
 
     //给出一个公共的静态方法返回一个单一实例
     public static synchronized BadSynchronizedSingleton getBadSynchronizedSingleton() {
-        if(badSynchronizedSingleton == null){
+        if (badSynchronizedSingleton == null) {
             badSynchronizedSingleton = new BadSynchronizedSingleton();
         }
         return badSynchronizedSingleton;

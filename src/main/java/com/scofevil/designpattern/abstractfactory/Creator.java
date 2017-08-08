@@ -8,5 +8,6 @@ package com.scofevil.designpattern.abstractfactory;
  */
 public interface Creator {
     ProductA createProductA();
+
     ProductB createProductB();
 }

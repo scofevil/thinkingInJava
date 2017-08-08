@@ -1,15 +1,27 @@
 package com.scofevil.test.socket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
+
+    public static void main(String[] args) {
+        int port = 8899;
+        //定义一个ServerSocket监听在8899端口上面
+        ServerSocket server;
+        try {
+            server = new ServerSocket(port);
+            while (true) {
+                //server尝试接收其他Socket的连接请求，server的accept方法是阻赛式的
+                Socket socket = server.accept();//如果这里一直没有客户端来请求，程序会一直阻赛在这里直到有客户端来请求
+                //跟客户端建立好连接之后，我们就可以获取socket的InputStream，并从中读取客户端发过来的信息了。
+                new Thread(new Task(socket)).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     static class Task implements Runnable {
 
@@ -78,22 +90,5 @@ public class Server {
             }
         }
 
-    }
-
-    public static void main(String[] args) {
-        int port = 8899;
-        //定义一个ServerSocket监听在8899端口上面
-        ServerSocket server;
-        try {
-            server = new ServerSocket(port);
-            while (true) {
-                //server尝试接收其他Socket的连接请求，server的accept方法是阻赛式的
-                Socket socket = server.accept();//如果这里一直没有客户端来请求，程序会一直阻赛在这里直到有客户端来请求
-                //跟客户端建立好连接之后，我们就可以获取socket的InputStream，并从中读取客户端发过来的信息了。
-                new Thread(new Task(socket)).start();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

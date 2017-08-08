@@ -4,10 +4,10 @@ import java.io.File;
 
 public class MakeDirectories {
     private static void usage() {
-        System.err
-            .println("Usage:MakeDirectories path1 ...\n" + "Create each path \n"
-                     + "Usage:MakeDirectories -d path1 ...\n" + "Deletes each path\n"
-                     + "Usage:MakeDirectories -r path1 path2 \n" + "Renames from path1 to path2");
+        System.err.println("Usage:MakeDirectories path1 ...\n" + "Create each path \n"
+                           + "Usage:MakeDirectories -d path1 ...\n" + "Deletes each path\n"
+                           + "Usage:MakeDirectories -r path1 path2 \n"
+                           + "Renames from path1 to path2");
         System.exit(1);
     }
 

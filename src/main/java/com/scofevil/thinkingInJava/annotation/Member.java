@@ -2,6 +2,7 @@ package com.scofevil.thinkingInJava.annotation;
 
 @DBTable(name = "MEMBER")
 public class Member {
+    static int memberCount;
     @SQLString(30)
     String  firstName;
     @SQLString(50)
@@ -10,7 +11,6 @@ public class Member {
     Integer age;
     @SQLString(value = 30, constraints = @Constraints(primaryKey = true))
     String  handle;
-    static int memberCount;
 
     public String getHandle() {
         return handle;

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * 
+ *
  * @author luhaifeng
  *
  */
@@ -27,25 +27,6 @@ public final class Directory {
 
     public static File[] local(String path, final String regex) {
         return local(new File(path), regex);
-    }
-
-    public static class TreeInfo implements Iterable<File> {
-        public List<File> files = new ArrayList<File>();
-        public List<File> dirs  = new ArrayList<File>();
-
-        public Iterator<File> iterator() {
-            return files.iterator();
-        }
-
-        public String toString() {
-            return "dirs: " + PPrint.pformat(dirs) + "\n\nfiles" + PPrint.pformat(files);
-        }
-
-        void addAll(TreeInfo other) {
-            files.addAll(other.files);
-            dirs.addAll(other.dirs);
-        }
-
     }
 
     public static TreeInfo walk(String start, String regex) {
@@ -90,5 +71,24 @@ public final class Directory {
 
     public static void main(String[] args) {
         System.out.println(walk("."));
+    }
+
+    public static class TreeInfo implements Iterable<File> {
+        public List<File> files = new ArrayList<File>();
+        public List<File> dirs  = new ArrayList<File>();
+
+        public Iterator<File> iterator() {
+            return files.iterator();
+        }
+
+        public String toString() {
+            return "dirs: " + PPrint.pformat(dirs) + "\n\nfiles" + PPrint.pformat(files);
+        }
+
+        void addAll(TreeInfo other) {
+            files.addAll(other.files);
+            dirs.addAll(other.dirs);
+        }
+
     }
 }

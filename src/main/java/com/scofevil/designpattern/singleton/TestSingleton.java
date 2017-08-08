@@ -16,26 +16,17 @@ public class TestSingleton {
 
     private volatile boolean lock;
 
-
-    public boolean isLock() {
-        return lock;
-    }
-
-    public void setLock(boolean lock) {
-        this.lock = lock;
-    }
-
     public static void main(String[] args) throws InterruptedException {
         final Set<String> instanceSet = Collections.synchronizedSet(new HashSet<String>());
         final TestSingleton lock = new TestSingleton();
         lock.setLock(true);
         ExecutorService executorService = Executors.newCachedThreadPool();
-        for(int i=0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    while (true){
-                        if(!lock.isLock()){
+                    while (true) {
+                        if (!lock.isLock()) {
                             Singleton singleton = Singleton.getSingleton();
                             instanceSet.add(singleton.toString());
                         }
@@ -47,10 +38,18 @@ public class TestSingleton {
         lock.setLock(false);
         Thread.sleep(2000);
         System.out.println("---------并发情况下我们取到的实例----------");
-        for(String each:instanceSet){
+        for (String each : instanceSet) {
             System.out.println(each);
         }
         executorService.shutdown();
         System.exit(0);
+    }
+
+    public boolean isLock() {
+        return lock;
+    }
+
+    public void setLock(boolean lock) {
+        this.lock = lock;
     }
 }

@@ -1,8 +1,7 @@
 package com.scofevil.test.springioc.impl;
 
-import org.springframework.stereotype.Service;
-
 import com.scofevil.test.springioc.dao.UserDao;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserDaoImpl implements UserDao {

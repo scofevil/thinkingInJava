@@ -9,10 +9,6 @@ public class SubClass extends SuperClass {
         this.s = s;
     }
 
-    public void dos() {
-        super.ds.dosomething(this.s);
-    }
-
     public static void main(String[] args) {
 
         /**
@@ -23,6 +19,10 @@ public class SubClass extends SuperClass {
         d.dos();
         DosI d1 = new SuperClass(new Dos());
         d1.dos();
+    }
+
+    public void dos() {
+        super.ds.dosomething(this.s);
     }
 
 }

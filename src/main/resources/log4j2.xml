@@ -5,47 +5,47 @@
         <Console name="SYSOUT" target="SYSTEM_OUT">
             <PatternLayout patter="%d [%t] %-5p [%c] - %m%n  "/>
         </Console>
- 
+
         <!-- default -->
         <RollingFile name="DEFAULT_ROLLING_FILE"
                      fileName="${sys:user.home}/logs/demeter/default.log"
                      filePattern="${sys:user.home}/logs/demeter/%d{yyyy-MM-dd}-default.log">
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Pattern>%d [%t] %-5p [%c] - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
             </Policies>
         </RollingFile>
- 
+
         <!-- error -->
         <RollingFile name="ERROR_ROLLING_FILE"
                      fileName="${sys:user.home}/logs/demeter/error.log"
                      filePattern="${sys:user.home}/logs/demeter/%d{yyyy-MM-dd}-error.log">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Pattern>%d [%t] %-5p [%c] - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
             </Policies>
         </RollingFile>
-        
+
         <!-- integration -->
         <RollingFile name="testLog"
                      fileName="${sys:user.home}/logs/demeter/testLog.log"
                      filePattern="${sys:user.home}/logs/demeter/%d{yyyy-MM-dd}-testLog.log">
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Pattern>%d [%t] %-5p [%c] - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
             </Policies>
         </RollingFile>
     </Appenders>
- 
+
     <Loggers>
-        <logger name="com.scofevil.test.log" level="trace" >
+        <logger name="com.scofevil.test.log" level="trace">
             <AppenderRef ref="DEFAULT_ROLLING_FILE"/>
         </logger>
         <Root level="error">

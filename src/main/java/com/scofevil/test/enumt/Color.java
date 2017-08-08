@@ -1,19 +1,13 @@
 package com.scofevil.test.enumt;
 
 public enum Color {
-    RED("red", 1),
-    GREEN("green", 2),
-    YELLOW {
+    RED("red", 1), GREEN("green", 2), YELLOW {
         public void test() {
             System.out.println("yellow");
         }
     };
     private String name;
     private int    id;
-
-    public void test() {
-        System.out.println(this.name);
-    }
 
     Color(String name, int id) {
         this.name = name;
@@ -22,6 +16,10 @@ public enum Color {
 
     Color() {
 
+    }
+
+    public void test() {
+        System.out.println(this.name);
     }
 
     public String getName() {

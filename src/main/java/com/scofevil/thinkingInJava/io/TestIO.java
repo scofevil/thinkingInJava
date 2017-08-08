@@ -1,10 +1,6 @@
 package com.scofevil.thinkingInJava.io;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class TestIO {
     public static void main(String[] args) {

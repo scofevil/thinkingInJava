@@ -8,7 +8,7 @@ import java.util.EventObject;
  * @see
  * @since 1.0
  */
-public class DoorEvent extends EventObject{
+public class DoorEvent extends EventObject {
 
     private static final long serialVersionUID = 6496098798146410884L;
 
@@ -19,11 +19,11 @@ public class DoorEvent extends EventObject{
         this.doorState = doorState;
     }
 
-    public void setDoorState(String doorState) {
-        this.doorState = doorState;
-    }
-
     public String getDoorState() {
         return this.doorState;
+    }
+
+    public void setDoorState(String doorState) {
+        this.doorState = doorState;
     }
 }

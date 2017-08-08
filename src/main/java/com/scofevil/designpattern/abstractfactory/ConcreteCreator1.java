@@ -6,7 +6,7 @@ package com.scofevil.designpattern.abstractfactory;
  * @see
  * @since 1.0
  */
-public class ConcreteCreator1 implements Creator{
+public class ConcreteCreator1 implements Creator {
     @Override
     public ProductA createProductA() {
         return new ProductA1();

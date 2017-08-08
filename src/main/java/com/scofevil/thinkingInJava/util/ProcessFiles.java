@@ -4,16 +4,21 @@ import java.io.File;
 import java.io.IOException;
 
 public class ProcessFiles {
-    public interface Strategy {
-        void process(File file);
-    }
-
     private Strategy strategy;
     private String   ext;
-
     public ProcessFiles(Strategy strategy, String ext) {
         this.strategy = strategy;
         this.ext = ext;
+    }
+
+    public static void main(String[] args) {
+        new ProcessFiles(new Strategy() {
+
+            public void process(File file) {
+                System.out.println(file);
+            }
+        }, "java").start(args);
+        ;
     }
 
     public void start(String args[]) {
@@ -46,13 +51,7 @@ public class ProcessFiles {
         }
     }
 
-    public static void main(String[] args) {
-        new ProcessFiles(new Strategy() {
-
-            public void process(File file) {
-                System.out.println(file);
-            }
-        }, "java").start(args);
-        ;
+    public interface Strategy {
+        void process(File file);
     }
 }

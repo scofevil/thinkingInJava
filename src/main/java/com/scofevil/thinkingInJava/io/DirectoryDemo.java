@@ -1,9 +1,9 @@
 package com.scofevil.thinkingInJava.io;
 
-import java.io.File;
-
 import com.scofevil.thinkingInJava.util.Directory;
 import com.scofevil.thinkingInJava.util.PPrint;
+
+import java.io.File;
 
 public class DirectoryDemo {
     public static void main(String[] args) {

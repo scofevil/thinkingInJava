@@ -1,10 +1,9 @@
 package com.scofevil.test.springioc;
 
-import javax.annotation.Resource;
-
+import com.scofevil.test.springioc.dao.UserDao;
 import org.springframework.stereotype.Service;
 
-import com.scofevil.test.springioc.dao.UserDao;
+import javax.annotation.Resource;
 
 @Service
 public class UserManager {

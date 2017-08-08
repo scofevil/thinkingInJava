@@ -14,39 +14,44 @@ import java.util.LinkedList;
 public class DataSource {
 
     private static LinkedList<Connection> connectionList = new LinkedList<>();
+    private static DataSource dataSource = new DataSource();
 
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private static Connection createNewConnection() throws SQLException{
-        String url = "jdbc:mysql://db.iwjwdev.com:3306/hims_test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true";
-        String name = "root";
-        String psw = "Manyi@123";
-        return DriverManager.getConnection(url, name, psw);
-    }
-
-    private DataSource(){
-        if(CollectionUtils.isEmpty(connectionList)){
-            for(int i=0;i<10;i++){
+    private DataSource() {
+        if (CollectionUtils.isEmpty(connectionList)) {
+            for (int i = 0; i < 10; i++) {
                 try {
                     connectionList.add(createNewConnection());
-                } catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public synchronized Connection getConnection(boolean useStaticProxy){
-        if(!CollectionUtils.isEmpty(connectionList)){
+    private static Connection createNewConnection() throws SQLException {
+        String url = "jdbc:mysql://db.iwjwdev.com:3306/hims_test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true";
+        String name = "root";
+        String psw = "Manyi@123";
+        return DriverManager.getConnection(url, name, psw);
+    }
+
+    public static DataSource getInstance() {
+        return dataSource;
+    }
+
+    public synchronized Connection getConnection(boolean useStaticProxy) {
+        if (!CollectionUtils.isEmpty(connectionList)) {
             //return connectionList.remove();  这是原有的方式，直接返回连接，这样可能会被程序员把连接给关闭掉
             //下面是使用代理的方式，程序员再调用close时，就会归还到连接池
-            if(useStaticProxy)
+            if (useStaticProxy)
                 return new ConnectionProxy(connectionList.remove());
             else
                 return connectionList.remove();
@@ -59,13 +64,7 @@ public class DataSource {
         connectionList.add(connection);
     }
 
-    public static DataSource getInstance(){
-        return dataSource;
-    }
-
-    public LinkedList<Connection> getConnectionList(){
+    public LinkedList<Connection> getConnectionList() {
         return connectionList;
     }
-
-    private static DataSource dataSource = new DataSource();
 }

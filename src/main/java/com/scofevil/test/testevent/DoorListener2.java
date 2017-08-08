@@ -6,7 +6,7 @@ package com.scofevil.test.testevent;
  * @see
  * @since 1.0
  */
-public class DoorListener2 implements DoorListener{
+public class DoorListener2 implements DoorListener {
     @Override
     public void doorEvent(DoorEvent event) {
         // TODO Auto-generated method stub

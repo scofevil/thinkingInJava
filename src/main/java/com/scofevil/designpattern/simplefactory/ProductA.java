@@ -6,7 +6,7 @@ package com.scofevil.designpattern.simplefactory;
  * @see
  * @since 1.0
  */
-public class ProductA implements IProduct{
+public class ProductA implements IProduct {
     @Override
     public void method() {
         System.out.println("产品A方法");
