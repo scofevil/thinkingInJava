@@ -7,6 +7,10 @@ public class Test {
 
         Color.RED.test();
         Color.YELLOW.test();
+
         System.out.println(Color.YELLOW.getName());
+    }
+    public void test(){
+        
     }
 }
