@@ -8,7 +8,7 @@ package com.scofevil.designpattern.singleton;
  */
 public class InnerClassSingleton {
 
-    public static Singleton getSingleton(){
+    public static Singleton getSingleton() {
         return Singleton.singleton;
     }
 

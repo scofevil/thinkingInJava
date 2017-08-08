@@ -2,7 +2,7 @@ package com.scofevil.test.threadlocal;
 
 public class DoSomething implements Runnable {
 
-    private static ThreadLocal<String> name = new ThreadLocal<String>() {
+    private static ThreadLocal<String> name  = new ThreadLocal<String>() {
         @Override
         protected String initialValue() {
             return Thread.currentThread().getName();

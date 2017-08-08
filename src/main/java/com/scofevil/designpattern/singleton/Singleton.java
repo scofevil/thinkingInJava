@@ -12,11 +12,12 @@ public class Singleton {
     private static Singleton singleton;
 
     //私有化构造函数
-    private Singleton(){}
+    private Singleton() {
+    }
 
     //给出一个公共的静态方法返回一个单一实例
-    public static Singleton getSingleton(){
-        if (singleton==null){
+    public static Singleton getSingleton() {
+        if (singleton == null) {
             singleton = new Singleton();
         }
         return singleton;

@@ -12,7 +12,8 @@ public class SynchronizedSingleton {
     private static  SynchronizedSingleton synchronizedSingleton;
 
     //私有化构造函数
-    private SynchronizedSingleton(){}
+    private SynchronizedSingleton(){
+    }
 
     //给出一个公共的静态方法返回一个单一实例
     public static SynchronizedSingleton getSynchroniedSingleton(){

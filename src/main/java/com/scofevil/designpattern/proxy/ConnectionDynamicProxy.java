@@ -11,11 +11,11 @@ import java.sql.Connection;
  * @see
  * @since 1.0
  */
-public class ConnectionDynamicProxy implements InvocationHandler{
+public class ConnectionDynamicProxy implements InvocationHandler {
 
     private Connection connection;
 
-    public ConnectionDynamicProxy(Connection connection){
+    public ConnectionDynamicProxy(Connection connection) {
         super();
         this.connection = connection;
     }
@@ -23,7 +23,8 @@ public class ConnectionDynamicProxy implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //这里判断是connection接口的close方法
-        if(Connection.class.isAssignableFrom(proxy.getClass()) && method.getName().equals("close")){
+        if (Connection.class.isAssignableFrom(proxy.getClass()) && method.getName()
+                .equals("close")) {
             //这里不真正执行close方法（method.invoke(connection,args))
             //而是将连接返回给连接池
             DataSource.getInstance().recoveryConnection(connection);
@@ -34,7 +35,9 @@ public class ConnectionDynamicProxy implements InvocationHandler{
         }
     }
 
-    public Connection getConnectionProxy(){
-        return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),new Class[]{Connection.class},this);
+    public Connection getConnectionProxy() {
+        return (Connection) Proxy
+                .newProxyInstance(getClass().getClassLoader(), new Class[] { Connection.class },
+                        this);
     }
 }
