@@ -22,7 +22,12 @@ public class Util {
         if (StringUtils.isBlank(src)) {
             return src;
         }
+
         return src.substring(0, 1).toUpperCase() + src.substring(1);
+    }
+
+    public void test(){
+        //test crlf
     }
 
     public static void main(String[] args) {
