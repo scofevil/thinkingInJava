@@ -10,7 +10,8 @@ public class Test {
 
         System.out.println(Color.YELLOW.getName());
     }
-    public void test(){
-        
+
+    public void test() {
+
     }
 }
