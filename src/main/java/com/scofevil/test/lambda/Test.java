@@ -2,7 +2,6 @@ package com.scofevil.test.lambda;
 
 import lombok.Data;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
