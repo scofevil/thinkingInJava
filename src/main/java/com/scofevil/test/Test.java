@@ -7,6 +7,8 @@ public class Test {
 
         Color.RED.test();
         Color.YELLOW.test();
+        Color.GREEN.test();
+        Color.GREEN.test();
 
         System.out.println(Color.YELLOW.getName());
     }
