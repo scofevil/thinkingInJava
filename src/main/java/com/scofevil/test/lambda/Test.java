@@ -12,7 +12,7 @@ import java.util.function.Predicate;
 @Data
 public class Test {
 
-    private String s;
+    String s;
 
     private int i = 3;
 

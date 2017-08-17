@@ -7,4 +7,9 @@ package com.scofevil.test.lambda;
  * @since 1.0
  */
 public class TestExtends {
+    public TestExtends() {
+
+    }
+
+    String s = "s";
 }

@@ -1,5 +1,6 @@
 package com.scofevil.test;
 
+import com.scofevil.test.lambda.TestExtends;
 import lombok.AllArgsConstructor;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -7,12 +8,20 @@ import java.util.concurrent.ConcurrentHashMap;
 @AllArgsConstructor
 public class Test {
     public static void main(String[] args) throws Throwable {
-        ConcurrentHashMap<String, String> cm = new ConcurrentHashMap<>();
-        for (int i = 0; i < 14; i++) {
-            cm.put("key_" + i, "value_" + i);
+        final  ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>();
+        for (int i=0; i<16; i++){
+            concurrentHashMap.put("key_" +i,"value_" +i);
         }
-        test(1, 2);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=10;i<1000;i++){
+                    concurrentHashMap.put("key_" +i,"value_" +i);
+                }
+            }
+        }).start();
 
+        System.out.println(concurrentHashMap);
     }
 
     static void test(int aaaaaaa, int bbbbbb) {
