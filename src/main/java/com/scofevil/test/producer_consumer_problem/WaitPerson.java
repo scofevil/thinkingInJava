@@ -29,7 +29,6 @@ public class WaitPerson implements Runnable {
                 synchronized (restaurant.chef) {
                     restaurant.meal = null;
                     restaurant.chef.notify();
-                    restaurant.meal = new Meal(100);
                 }
             }
         } catch (InterruptedException e) {
