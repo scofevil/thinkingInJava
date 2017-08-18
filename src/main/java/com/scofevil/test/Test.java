@@ -6,15 +6,12 @@ public class Test {
 
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
-            while (!flag) {
+            while (!Thread.currentThread().isInterrupted()) {
                 System.out.println("im running");
-                try {
-                    Thread.sleep(50000000);
-                } catch (InterruptedException e) {
-                    System.out.println("im interupted");
-                }
+                System.out.println(Thread.currentThread().isInterrupted());
                 System.out.println("ending");
             }
+            System.out.println("jieshu " + Thread.currentThread().isInterrupted());
         });
         t.start();
         try {
