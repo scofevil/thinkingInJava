@@ -18,7 +18,7 @@ public class Client {
             public void run() {
                 while (true) {
                     System.out.println(l.size());
-                    l.add(new Test());
+//                    l.add(new Test());
                 }
             }
         }).start();
