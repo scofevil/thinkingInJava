@@ -2,6 +2,9 @@ package com.scofevil.util;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * <br>创建日期：2017年5月15日
  * <br><b>Copyright 2017 IWJW All Rights Reserved</b>
@@ -26,11 +29,27 @@ public class Util {
         return src.substring(0, 1).toUpperCase() + src.substring(1);
     }
 
-    public static void main(String[] args) {
-        System.out.println(capitalizeFirstLetter("ac"));
+    public static int[] getRandomArray(Integer count, Integer start, Integer end) {
+        if (count == null || count < 1)
+            throw new IllegalArgumentException();
+        if (start == null)
+            start = Integer.MIN_VALUE;
+        if (end == null)
+            end = Integer.MAX_VALUE;
+        if (start >= end)
+            throw new IllegalArgumentException();
+        int re[] = new int[count];
+        for (int i = 0; i < count; i++) {
+            Random rand = new Random();
+            int randomNum = rand.nextInt((end - start) + 1) + start;
+            re[i] = randomNum;
+        }
+        return re;
     }
 
-    public void test() {
-        //test crlf
+    public static void main(String[] args) {
+        int a[] = getRandomArray(100000000, 0, 2000000000);
+        System.out.println(a.length);
     }
+
 }
